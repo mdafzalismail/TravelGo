@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TravelGo_final.Data;
 
 namespace TravelGo_final.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200409142018_UserInfo")]
+    partial class UserInfo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,25 +47,25 @@ namespace TravelGo_final.Migrations
                     b.ToTable("addTrips");
                 });
 
-            modelBuilder.Entity("TravelGo_final.Model.AddUser", b =>
+            modelBuilder.Entity("TravelGo_final.Model.UserInfo", b =>
                 {
                     b.Property<int>("uid")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("phone")
+                    b.Property<string>("uaddress")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("uname")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("uphone")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("uid");
 
-                    b.ToTable("addUser");
+                    b.ToTable("userInfo");
                 });
 
             modelBuilder.Entity("TravelGo_final.Model.feedBack", b =>
