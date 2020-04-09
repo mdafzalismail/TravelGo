@@ -15,6 +15,7 @@ namespace TravelGo_final.Data
         }
 
         public DbSet<AddTrip> addTrips { get; set; }
+        public DbSet<feedBack> feedBack { get; set; }
     }
 }
 
